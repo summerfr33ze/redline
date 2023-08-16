@@ -45,8 +45,10 @@ img {
     height: 20vw;
     border-radius: 20px;
     margin-right: 20vh;
+    margin-top: 10vh;
     border: 3px solid black;
     box-shadow: 3px 3px 3px black;
+
 }
 
 img:hover {
@@ -56,6 +58,7 @@ img:hover {
 
 .container-container {
     display: flex;
+    align-items: center;
     
 }
 
