@@ -10,7 +10,7 @@ for(let boxer of boxers){
 
         const randomResponse = boxer.responses[Math.floor(Math.random()*boxer.responses.length)]
         response.textContent = randomResponse
-        setTimeout(()=>{response.style.display = 'none'},"7000")
+    
     }
     
 }
@@ -23,7 +23,7 @@ function sealerResponseLoop(){
             if (randomResponse.includes("xx")){
                 const editedResponse = randomResponse.replaceAll("xx", `${boxersList.value}`)
                 response.textContent = editedResponse
-                setTimeout(()=>{response.style.display = 'none'},"7000")
+                
             }
             else {response.textContent= randomResponse}
         }
