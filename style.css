@@ -74,12 +74,9 @@ form {
 label {
     font-size: 40px;
     font-family: 'marker';
-    transition: font-size .5s
 }
 
-label:hover {
-    font-size: 43px;
-}
+
 
 input {
     font-size: 1.5rem;
