@@ -1,6 +1,6 @@
 @font-face{
-    font-family: "amatic";
-    src: url(amatic.ttf)
+    font-family: "shogun";
+    src: url(shogun.ttf)
 }
 
 html, body {
@@ -11,23 +11,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: skyblue;
     justify-content: space-between;
 }
 
 h1 {
-    font-family: "amatic";
+    font-family: "shogun";
     font-size: 4.1rem;
-    background-color: #00FF7F;
+    background-color: black;
+    color: darkred;
     padding: 0px 15px 10px 15px;
     margin-top: 2vh;
     border-radius: 10px;
-    box-shadow: 0px 5px 20px teal;
+    box-shadow: 0px 5px 20px ;
 }
 
 img {
     width: 25vw;
-    border-radius: 5px;
+    border-radius: 20px;
     margin-right: 20vh;
     border: 3px solid black;
 }
@@ -49,24 +49,26 @@ form {
 }
 
 .warning-box{
+    display: none;
     margin-top: 5vh;
-    background-color: #00FF7F;
+    background-color: black;
+    color: white;
     border-radius: 15px;
     font-size: 1.8rem;
     padding: 5px;
     margin-right: 5vh;
     width: 25vw;
-    box-shadow: 0px 5px 20px teal;
+    box-shadow: 0px 5px 20px ;
+    margin-bottom: 10px;
     
 }
 
 .footer{
-    background-color: #00FF7F;
+    background-color: black;
+    color: red;
     width: 100%;
     text-align: center;
-    padding-bottom: 10px;
     font-size: 1.8rem;
-    border-radius: 10px;
-    box-shadow: 0px -1px 20px teal;
+    box-shadow: 0px -1px 10px;
 }
 

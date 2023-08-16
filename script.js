@@ -6,7 +6,9 @@ const response = document.querySelector(".warning-box")
 function boxerResponseLoop(){
 for(let boxer of boxers){
     if (boxer.name === boxersList.value){
-        response.textContent = boxer.responses[Math.floor(Math.random()*boxer.responses.length)]
+
+        const randomResponse = boxer.responses[Math.floor(Math.random()*boxer.responses.length)]
+        response.textContent = randomResponse
     }
     
 }
@@ -15,8 +17,12 @@ for(let boxer of boxers){
 function sealerResponseLoop(){
     for(let sealer of sealers){
         if (sealer.name === sealersList.value){
-            response.textContent = sealer.responses[Math.floor(Math.random()*sealer.responses.length)],
-            console.log(response.textContent)
+            const randomResponse = sealer.responses[Math.floor(Math.random()*sealer.responses.length)]
+            if (randomResponse.includes("xx")){
+                const editedResponse = randomResponse.replaceAll("xx", `${boxersList.value}`)
+                response.textContent = editedResponse
+            }
+            else {response.textContent= randomResponse}
         }
     }
 }
@@ -24,17 +30,14 @@ function sealerResponseLoop(){
 function employeeChoiceLoop() {
     let randomNumber = Math.random()
     let responseChance
-    // if(!boxersList.value.includes(`${}`))
     if (boxersList.value.toLowerCase() === "jimmy" || "bill" || "harry" || "kurt" || "kevin") {
-     responseChance = .7
+     responseChance = .4
     }
-    else{ responseChance = .3}
+    else{ responseChance = .6}
 
 
     if(comboResponse()){
-        console.log(comboResponse())
         for (let sealer of sealers){
-            console.log(sealer)
             if (sealersList.value === sealer.name){
                 response.textContent = sealer.combo_responses
             }
@@ -50,7 +53,7 @@ function employeeChoiceLoop() {
 }
 
 function comboResponse(){
-    if (sealersList.value.toLowerCase() === "jimmily" && boxersList.value.toLowerCase() === "jimmy" || sealersList.value.toLowerCase() === "tammy" && boxersList.value.toLowerCase() === "kevin" || sealersList.value.toLowerCase() === "jay" && boxersList.value.toLowerCase() === "kurt" ){
+    if (sealersList.value.toLowerCase() === "jimmily" && boxersList.value.toLowerCase() === "jimmy" || sealersList.value.toLowerCase() === "tammy" && boxersList.value.toLowerCase() === "kevin" || sealersList.value.toLowerCase() === "jay" && boxersList.value.toLowerCase() === "kurt" || sealersList.value.toLowerCase() === "alicia" && boxersList.value.toLowerCase() === "trevor"){
         return true
     }
     else return false
@@ -98,7 +101,7 @@ const sealers = [
     combo_responses: "Little did we know, Jimmily was originally named Emily but she had a secret romance with Jimmy and changed her name. Everyone realized this at once when we saw them bickering during a kit"
     },
     {name: "Sue",
-    responses: ["Every time stagers tried to bring Sue her rush orders she couldn't hear them calling out 'rush order.' The kit was partialed", `Trevor pointed out that Sue looked like an owl and everyone literally died laughing `]
+    responses: ["Every time stagers tried to bring Sue her rush orders she couldn't hear them calling out 'rush order.' The kit was partialed", `xx pointed out that Sue looked like an owl and everyone literally died laughing `]
     
     },
     {name: "Tammy", 
@@ -108,12 +111,16 @@ const sealers = [
     {name: "Jay",
     responses: ["The entire department was quarantined by the FDA due to a suspicious smell. Men in hazmat suits quickly homed in on Jay's line. The smell turned out to be Jay's breath.","Jay spent the entire kit telling stories he's told twenty times over to all the new people on his line. They forgot to add one of the port protectors as a result and the whole kit had to go back"],
     combo_responses: "Jay sent out ten wrinkled seals right at the end of the kit. We had to send back all ten of Kurt's audit pieces."
-    
+},
+    {name: "Alicia",
+    responses: ["xx realized that there was no limit to Alicia's cheerfulness and decided to test it anyway. xx sent back pouches that had nothing at all wrong with them, only to be told (s)he was doing a 'great job.'","Alicia got tired of reworking wrinkled pouches one day and screamed 'YOU KNOW WHAT?? YOU'RE NOT DOING A GREAT JOB. YOU'RE DOING FUCKING TERRIBLE. I HATE YOU'. HR called her down to the office and she somehow charmed them into letting her keep the job."],
+    combo_responses: "Trevor and Alicia decided to mess with everyone's heads and design paperwork for a fake kit and work on it on an empty line. We paid AJ to bring us random objects like we were ordering parts."
 }
 ]
 
 submitButton.addEventListener("click", (e) => {
     e.preventDefault()
+    response.style.display = "block"
     employeeChoiceLoop()
     boxersList.value = ""
     sealersList.value = ""
