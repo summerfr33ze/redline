@@ -2,6 +2,7 @@ const boxersList = document.querySelector("#boxers-input")
 const sealersList = document.querySelector("#sealers-input")
 const submitButton = document.querySelector(".btn")
 const response = document.querySelector(".warning-box")
+const header = document.querySelector("h1")
 
 function boxerResponseLoop(){
 for(let boxer of boxers){
@@ -9,6 +10,7 @@ for(let boxer of boxers){
 
         const randomResponse = boxer.responses[Math.floor(Math.random()*boxer.responses.length)]
         response.textContent = randomResponse
+        setTimeout(()=>{response.style.display = 'none'},"7000")
     }
     
 }
@@ -21,6 +23,7 @@ function sealerResponseLoop(){
             if (randomResponse.includes("xx")){
                 const editedResponse = randomResponse.replaceAll("xx", `${boxersList.value}`)
                 response.textContent = editedResponse
+                setTimeout(()=>{response.style.display = 'none'},"7000")
             }
             else {response.textContent= randomResponse}
         }
@@ -40,6 +43,7 @@ function employeeChoiceLoop() {
         for (let sealer of sealers){
             if (sealersList.value === sealer.name){
                 response.textContent = sealer.combo_responses
+                setTimeout(()=>{response.style.display = "none"},"7000")
             }
         }
     }
@@ -126,6 +130,17 @@ submitButton.addEventListener("click", (e) => {
     sealersList.value = ""
     
 })
+
+header.addEventListener("mouseover", () => {
+    header.textContent = "medline"
+})
+
+header.addEventListener("mouseout", () => {
+    header.textContent = "redline"
+})
+
+
+
 
 
 
