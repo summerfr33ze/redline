@@ -34,9 +34,9 @@ function employeeChoiceLoop() {
     let randomNumber = Math.random()
     let responseChance
     if (boxersList.value.toLowerCase() === "jimmy" || "bill" || "harry" || "kurt" || "kevin") {
-     responseChance = .4
+     responseChance = .6
     }
-    else{ responseChance = .6}
+    else{ responseChance = .4}
 
 
     if(comboResponse()){
